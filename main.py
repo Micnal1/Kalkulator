@@ -158,20 +158,15 @@ if __name__ == "__main__":
  4 - Dzielenie
  Jakie działanie chcesz wykonać?:""")
 
+        if menu == '0':
+            break
+
         if menu == '1':
             wynik = '{:0.2f}'.format(dodawanie())
             print(f'wynik to: {wynik}')
 
         elif menu == '2':
             wynik = (odejamowanie())
-            if wynik > 0:
-                wynik = '{:0.2f}'.format(odejamowanie())
-            elif wynik == 0:
-                wynik = 0
-            else:
-                wynik *= -1
-                wynik = str(wynik)
-                wynik.format('{:0.2f}')
             print(f'wynik to: {wynik}')
 
         elif menu == '3':
