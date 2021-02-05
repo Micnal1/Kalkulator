@@ -45,6 +45,7 @@ def odejamowanie():
     output = 0
     counting_down = 1
     list_storage = []
+    list_storage2 = []
     VS_BAG = 10
 
     while True:
@@ -66,9 +67,16 @@ def odejamowanie():
             if counting_down == 1:
                 output +=float(storage) * VS_BAG
                 list_storage.append(storage)
+                list_storage2.append(storage)
             else:
                 output -=float(storage) * VS_BAG
+                list_storage2.append(storage)
         counting_down += 1
+
+    if counting_down == 2:
+        print(f"{list_storage[0]} to {list_storage[0]}!")
+    elif counting_down == 3:
+        print(f"Od {(list_storage2[0])} odejmuję {list_storage2[1]}")
 
     return  output/VS_BAG
 
@@ -119,6 +127,7 @@ def dzielenie():
     output = 0
     counting_down = 1
     list_storage = []
+    list_storage2 = []
     VS_BAG = 1
 
     while True:
@@ -140,9 +149,16 @@ def dzielenie():
             if counting_down == 1:
                 output +=float(storage) * VS_BAG
                 list_storage.append(storage)
+                list_storage2.append(storage)
             else:
                 output = output/(float(storage) * VS_BAG)
+                list_storage2.append(storage)
         counting_down += 1
+
+    if counting_down == 2:
+        print(f"{list_storage[0]} to {list_storage[0]}!")
+    elif counting_down == 3:
+        print(f"{(list_storage2[0])} dzielę przez {list_storage2[1]}")
 
     return  output/VS_BAG
 
@@ -166,7 +182,7 @@ if __name__ == "__main__":
             print(f'wynik to: {wynik}')
 
         elif menu == '2':
-            wynik = (odejamowanie())
+            wynik = '{:0.2f}'.format(odejamowanie())
             print(f'wynik to: {wynik}')
 
         elif menu == '3':
