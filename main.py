@@ -1,167 +1,75 @@
+import math
+import logging
+
+logging.basicConfig(level=logging.DEBUG)
 
 def dodawanie():
-    output = 0
-    counting_down = 1
-    list_storage = []
-    more_text = ''
-    more_text2 = ''
-
+    a = float(input('Podaj składnik 1:'))
+    b = float(input('Podaj składnik 1:'))
+    list = [a,b]
     while True:
-        numbers =['0','1','2','3','4','5','6','7','8','9','.']
-        type_float = True
-        storage = input(f'podaj {counting_down} liczbę{more_text}:')
-        counting_down +=1
-
-        if counting_down > 2:
-            more_text = ' lub wciśnij ENTER'
-
-        if bool(storage) == False:
+        nr = 3
+        c = input(f'Podaj składnik {nr} lub wciśnij enter:')
+        if not bool(c):
             break
+        c = float(c)
+        nr += 1
+        list.append(c)
 
-        for i in storage:
-            if not i in numbers:
-                type_float = False
+    if len(list) == 2:
+        logging.debug(f'Dodaję {a} i {b}')
 
-        if type_float == False:
-            print("Błąd: Źle napisana liczba!")
-            break
-        else:
-            output +=float(storage) * 10
-            list_storage.append(storage)
+    if len(list) > 2:
+        text = ''
+        for i in list:
+            text += str(i) +" "
 
-    if len(list_storage) == 1:
-        print(f"{list_storage[0]} to {list_storage[0]}!")
-    elif len(list_storage) == 2:
-        print(f"Dodaję {(list_storage[0])} i {list_storage[1]}")  #wypisywane liczby nie mają formatu!!
-    elif len(list_storage) > 2:
-        for i in list_storage:
-            more_text2 +=i+', '
+        logging.debug(f"Sumuję liczby : {text}")
 
-        print(f"Sumuję liczby: {more_text2}")
-
-    return output/10
-
-def odejamowanie():
-    output = 0
-    counting_down = 1
-    list_storage = []
-    list_storage2 = []
-    VS_BAG = 10
-
-    while True:
-        if counting_down > 2:
-            break
-        numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '.']
-        type_float = True
-        storage = input(f'podaj {counting_down} liczbę:')
-
-
-        for i in storage:
-            if not i in numbers:
-                type_float = False
-
-        if type_float == False:
-            print("Błąd: Źle napisana liczba!")
-            break
-        else:
-            if counting_down == 1:
-                output +=float(storage) * VS_BAG
-                list_storage.append(storage)
-                list_storage2.append(storage)
-            else:
-                output -=float(storage) * VS_BAG
-                list_storage2.append(storage)
-        counting_down += 1
-
-    if counting_down == 2:
-        print(f"{list_storage[0]} to {list_storage[0]}!")
-    elif counting_down == 3:
-        print(f"Od {(list_storage2[0])} odejmuję {list_storage2[1]}")
-
-    return  output/VS_BAG
+    print('Wynik to:','{:0.2f}'.format(math.fsum(list)))
 
 def mnożenie():
-    output = 1
-    counting_down = 1
-    list_storage = []
-    more_text = ''
-    more_text2 = ''
-
+    a = float(input('Podaj składnik 1:'))
+    b = float(input('Podaj składnik 1:'))
+    list = [a,b]
     while True:
-        numbers =['0','1','2','3','4','5','6','7','8','9','.']
-        type_float = True
-        storage = input(f'podaj {counting_down} liczbę{more_text}:')
-        counting_down +=1
-
-        if counting_down > 2:
-            more_text = ' lub wciśnij ENTER'
-
-        if bool(storage) == False:
+        nr = 3
+        c = input(f'Podaj składnik {nr} lub wciśnij enter:')
+        if not bool(c):
             break
+        c = float(c)
+        nr += 1
+        list.append(c)
 
-        for i in storage:
-            if not i in numbers:
-                type_float = False
+    if len(list) == 2:
+        logging.debug(f'Mnożę {a} i {b}')
 
-        if type_float == False:
-            print("Błąd: Źle napisana liczba!")
-            break
-        else:
-            output *=float(storage)
-            list_storage.append(storage)
+    if len(list) > 2:
+        text = ''
+        for i in list:
+            text += str(i) +" "
 
-    if len(list_storage) == 1:
-        print(f"{list_storage[0]} to {list_storage[0]}!")
-    elif len(list_storage) == 2:
-        print(f"Mnożę {(list_storage[0])} i {list_storage[1]}")
-    elif len(list_storage) > 2:
+        logging.debug(f"Mnożę liczby : {text}")
 
-        for i in list_storage:
-            more_text2 +=i+', '
+    print('Wynik to:','{:0.2f}'.format(math.prod(list)))
 
-        print(f"Mnożę liczby: {more_text2}")
+def odejmowanie():
+    a = float(input('Podaj składnik 1:'))
+    b = float(input('Podaj składnik 1:'))
+    list = [a,b]
+    if len(list) == 2:
+        logging.debug(f'Odejmuję {b} od {a}')
 
-    return output
+    print('Wynik to:','{:0.2f}'.format(a - b))
 
 def dzielenie():
-    output = 0
-    counting_down = 1
-    list_storage = []
-    list_storage2 = []
-    VS_BAG = 1
+    a = float(input('Podaj składnik 1:'))
+    b = float(input('Podaj składnik 1:'))
+    list = [a,b]
+    if len(list) == 2:
+        logging.debug(f'Dzielę {a} przez {b}')
 
-    while True:
-        if counting_down > 2:
-            break
-        numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '.']
-        type_float = True
-        storage = input(f'podaj {counting_down} liczbę:')
-
-
-        for i in storage:
-            if not i in numbers:
-                type_float = False
-
-        if type_float == False:
-            print("Błąd: Źle napisana liczba!")
-            break
-        else:
-            if counting_down == 1:
-                output +=float(storage) * VS_BAG
-                list_storage.append(storage)
-                list_storage2.append(storage)
-            else:
-                output = output/(float(storage) * VS_BAG)
-                list_storage2.append(storage)
-        counting_down += 1
-
-    if counting_down == 2:
-        print(f"{list_storage[0]} to {list_storage[0]}!")
-    elif counting_down == 3:
-        print(f"{(list_storage2[0])} dzielę przez {list_storage2[1]}")
-
-    return  output/VS_BAG
-
+    print('Wynik to:','{:0.2f}'.format(a / b))
 
 if __name__ == "__main__":
     while True:
@@ -178,17 +86,13 @@ if __name__ == "__main__":
             break
 
         if menu == '1':
-            wynik = '{:0.2f}'.format(dodawanie())
-            print(f'wynik to: {wynik}')
+            dodawanie()
 
         elif menu == '2':
-            wynik = '{:0.2f}'.format(odejamowanie())
-            print(f'wynik to: {wynik}')
+            odejmowanie()
 
         elif menu == '3':
-            wynik = '{:0.2f}'.format(mnożenie())
-            print(f'wynik to: {wynik}')
+            mnożenie()
 
         elif menu == '4':
-            wynik = '{:0.2f}'.format(dzielenie())
-            print(f'wynik to: {wynik}')
+            dzielenie()
